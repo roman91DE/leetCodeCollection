@@ -6,7 +6,6 @@ import (
 	"reflect"
 )
 
-// merge merges nums2 into nums1 and sorts the resulting slice.
 func merge1(nums1 []int, m int, nums2 []int, n int) {
 	// Copy the elements from nums2 into nums1 starting from index m
 	copy(nums1[m:], nums2[:n])
@@ -14,23 +13,6 @@ func merge1(nums1 []int, m int, nums2 []int, n int) {
 	sort.Ints(nums1)
 }
 
-
-// merges nums2 into nums1 and sorts the resulting slice.
-// func merge2(nums1 []int, m int, nums2 []int, n int) {
-
-// 	i1, i2 := 0, 0
-
-// 	for ;(i1 < m+n); {
-// 		if nums2[i2] < nums1[i1] {
-// 			copy(nums1[i1+1:m+1], nums1[i1:m])
-// 			nums1[i1] = nums2[i2]
-// 			i2++
-// 		}else {
-// 			i1++
-// 		}
-// 	}
-// 	copy(nums1[m+1:], nums2[i2:])
-// }
 func merge2(nums1 []int, m int, nums2 []int, n int) {
 	i1, i2 := 0, 0
 
@@ -50,6 +32,8 @@ func merge2(nums1 []int, m int, nums2 []int, n int) {
 		copy(nums1[m:], nums2[i2:])
 	}
 }
+
+
 
 // testMerge runs test cases to verify the merge function works as expected.
 func testMerge() {
