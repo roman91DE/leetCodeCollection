@@ -6,9 +6,10 @@ import (
 )
 
 func removeElement(nums []int, val int) int {
-	idx := sort.SearchInts(nums, val)
+	sort.Ints(nums[])
+ idx := sort.SearchInts(nums, val)
 	swapIdx := len(nums) - 1
-	sort.Ints(nums[:idx])
+	
 	
 
 	for ;idx <= swapIdx; idx = sort.SearchInts(nums, val) {
