@@ -5,21 +5,38 @@ import (
 	"sort"
 )
 
+// func removeElement(nums []int, val int) int {
+// 	sort.Ints(nums)
+// 	idx := sort.SearchInts(nums, val)
+// 	swapIdx := len(nums) - 1
+
+// 	for idx < swapIdx {
+// 		if nums[swapIdx] == val {
+// 			swapIdx--
+// 			continue
+// 		}
+// 		sort.Ints(nums[:swapIdx])
+// 		idx = sort.SearchInts(nums[:swapIdx], val)
+// 		nums[idx], nums[swapIdx] = nums[swapIdx], nums[idx]
+// 		swapIdx--
+// 	}
+
+// 	return idx
+// }
+
+
 func removeElement(nums []int, val int) int {
+	n := len(nums)
+	j := 0
 	sort.Ints(nums)
-	idx := sort.SearchInts(nums, val)
-	swapIdx := len(nums) - 1
-
-	for ; idx < swapIdx; idx = sort.SearchInts(nums[:swapIdx], val) {
-		for ; nums[swapIdx] == val; swapIdx-- {
-			break
-		}
-		nums[idx], nums[swapIdx] = nums[swapIdx], nums[idx]
-		swapIdx--
+	rmi := make([]int, n)
+	for i := sort.SearchInts(nums[j:], val); i < n; j=i{
+		rmi = append(rmi, i)
 	}
+	copy()
 
-	return idx
 }
+
 func main() {
 	// Example 1
 	nums1 := []int{3, 2, 2, 3}
