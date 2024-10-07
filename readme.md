@@ -7,8 +7,8 @@ This repository contains my solutions to various LeetCode challenges, primarily 
 To run any solution, ensure you have [Go installed](https://golang.org/doc/install). Clone this repository and navigate to the desired challenge folder:
 
 ```bash
-git clone https://github.com/yourusername/leetcode-go-solutions.git
-cd leetCode/top_interview_150/problem-folder
+git clone https://github.com/roman91DE/leetCodeCollection.git
+cd leetCode/<LEARN_PLAN_DIR>/<PROBLEM_DIR>
 ```
 
 Run the solution with:
