@@ -9,7 +9,7 @@ type Interval struct {
 	end   int
 }
 
-func (i Interval) toString(nums []int) string{
+func (i Interval) toString(nums []int) string {
 	if i.start == i.end {
 		return fmt.Sprintf("%v", nums[i.start])
 	} else {
@@ -17,41 +17,38 @@ func (i Interval) toString(nums []int) string{
 	}
 }
 
-
 func summaryRanges(nums []int) []string {
 
-	if len(nums) == 0{
+	if len(nums) == 0 {
 		return []string{}
 	}
-	
-	intervals := make ([]Interval, 0)
+
+	intervals := make([]Interval, 0)
 	startBuffer := 0
 
-	for i,v := range nums {
+	for i, v := range nums {
 
-		if i == len(nums) -1 {
+		if i == len(nums)-1 {
 			// reached the end of the slice
 			break
-		} else if (v+1 == nums[i+1]) {
+		} else if v+1 == nums[i+1] {
 			// intervall keeps running
 			continue
 		} else {
 			// reached the end of the intervall
 			intervals = append(intervals, Interval{startBuffer, i})
-			startBuffer = i+1
+			startBuffer = i + 1
 		}
 	}
-	intervals = append(intervals, Interval{startBuffer, len(nums)-1})
+	intervals = append(intervals, Interval{startBuffer, len(nums) - 1})
 
 	intervalStrings := make([]string, len(intervals))
-    for idx, interval := range intervals {
-        intervalStrings[idx] = interval.toString(nums)
-    }
+	for idx, interval := range intervals {
+		intervalStrings[idx] = interval.toString(nums)
+	}
 
 	return intervalStrings
 }
-
-
 
 func main() {
 	// Test cases from the challenge description
