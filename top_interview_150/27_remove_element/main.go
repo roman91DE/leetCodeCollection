@@ -5,36 +5,25 @@ import (
 	"sort"
 )
 
-// func removeElement(nums []int, val int) int {
-// 	sort.Ints(nums)
-// 	idx := sort.SearchInts(nums, val)
-// 	swapIdx := len(nums) - 1
-
-// 	for idx < swapIdx {
-// 		if nums[swapIdx] == val {
-// 			swapIdx--
-// 			continue
-// 		}
-// 		sort.Ints(nums[:swapIdx])
-// 		idx = sort.SearchInts(nums[:swapIdx], val)
-// 		nums[idx], nums[swapIdx] = nums[swapIdx], nums[idx]
-// 		swapIdx--
-// 	}
-
-// 	return idx
-// }
-
-
 func removeElement(nums []int, val int) int {
-	n := len(nums)
-	j := 0
-	sort.Ints(nums)
-	rmi := make([]int, n)
-	for i := sort.SearchInts(nums[j:], val); i < n; j=i{
-		rmi = append(rmi, i)
+	// Ensure the array is sorted
+	if !(sort.IntsAreSorted(nums)) {
+		sort.Ints(nums)
 	}
-	copy()
 
+	// Find the start and end positions of 'val' in the sorted array
+	i0 := sort.SearchInts(nums, val)
+	if i0 == len(nums) || nums[i0] != val {
+		// If 'val' is not found, return the original length
+		return len(nums)
+	}
+
+	in := sort.Search(len(nums), func(i int) bool { return nums[i] > val })
+
+	// Copy the remaining elements after 'val' to the position where 'val' starts
+	copy(nums[i0:], nums[in:])
+
+	return len(nums) - (in - i0)
 }
 
 func main() {
@@ -77,12 +66,25 @@ func main() {
 	} else {
 		fmt.Println("Test case 4 failed")
 	}
+
+	// Additional test case 4 (edge case: no elements to remove)
+	nums5 := []int{1, 2, 3, 4}
+	val5 := 1
+	k5 := removeElement(nums5, val5)
+	if k5 == 3 && equal(nums5[:k5], []int{4, 2, 3}) {
+		fmt.Println("Test case 5 passed")
+	} else {
+		fmt.Println("Test case 5 failed")
+	}
 }
 
 func equal(a, b []int) bool {
 	if len(a) != len(b) {
 		return false
 	}
+	sort.Ints(a)
+	sort.Ints(b)
+
 	for i := range a {
 		if a[i] != b[i] {
 			return false
