@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// my first implementation brute forces all combinations and is 
+// my first implementation brute forces all combinations and is
 // therefore too slow on large test cases
 
 // func maxProfit(prices []int) int {
@@ -22,11 +22,10 @@ import (
 // 	return profit
 // }
 
-
 // maxProfit function calculates the maximum profit that can be achieved
 func maxProfit(prices []int) int {
 
-	if len(prices) <= 1{
+	if len(prices) <= 1 {
 		return 0
 	}
 
@@ -40,28 +39,23 @@ func maxProfit(prices []int) int {
 
 	// kardane's algorithm finds the largest sum over all contigous sub-arrays
 	return kardaneAlgorithm(priceDiffs)
-
 }
 
 // kardane's algorithm finds the largest sum of a contigous subarray
 func kardaneAlgorithm(diffs []int) int {
 	// 0 also reflects negative returns in the challenge
-	bestSum := 0
-	currentSum := 0
+	bestSum, currentSum := 0, 0
 
 	for _, val := range diffs {
 		// current sum is either the current value or the previous rolling sum + the current value
 		currentSum = max(val, currentSum+val)
-		// save best results 
+		// save best results
 		bestSum = max(bestSum, currentSum)
 	}
 	return bestSum
 }
 
-
-
 func main() {
-	// Test cases
 	testCases := []struct {
 		prices   []int
 		expected int
@@ -71,9 +65,9 @@ func main() {
 		{[]int{1, 2, 3, 4, 5}, 4}, // Increasing prices
 		{[]int{5, 4, 3, 2, 1}, 0}, // Decreasing prices
 		{[]int{3, 3, 3, 3, 3}, 0}, // All prices are the same
-		{[]int{}, 0},	          // Empty array
-		{[]int{2,4,1}, 2},
-		{[]int{2,11,1,4,7}, 9},
+		{[]int{}, 0},              // Empty array
+		{[]int{2, 4, 1}, 2},
+		{[]int{2, 11, 1, 4, 7}, 9},
 	}
 
 	for i, testCase := range testCases {
