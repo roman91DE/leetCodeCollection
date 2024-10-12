@@ -19,26 +19,7 @@ go run main.go
 
 ## Directory Structure
 
-The repository is organized with a directory for each study plan. Within the `top_interview_150` folder, each problem has its own subdirectory named with the problem number and challenge name. Each subdirectory contains the Go solution (`main.go`) and the module file (`go.mod`).
-
-```
-.
-├── readme.md
-└── top_interview_150
-    ├── 228_summary_ranges
-    │   ├── go.mod
-    │   └── main.go
-    ├── 27_remove_element
-    │   ├── go.mod
-    │   └── main.go
-    ├── 383_Ransom_Note
-    │   ├── go.mod
-    │   └── main.go
-    └── 88_merge_sorted_array
-        ├── go.mod
-        └── main.go
-```
-
+The repository is organized with a directory for each study plan. Within the study plan folder, each problem has its own subdirectory named with the problem number and challenge name. 
 ## Contributions
 
 Contributions are welcome! Fork the repository, create a branch, and open a pull request.
