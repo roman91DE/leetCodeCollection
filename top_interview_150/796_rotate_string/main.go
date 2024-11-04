@@ -37,7 +37,4 @@ func main(){
 	goal = "cab"
 
 	fmt.Printf("Check False: %t\n", rotateString(s,goal))
-
-
-
 }
